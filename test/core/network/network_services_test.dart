@@ -9,11 +9,13 @@ import 'network_services.mocks.dart';
 
 @GenerateMocks([NetworkServices])
 void main() {
+  /// Tanpa Mocking
   test('should get Response Success from /products', () async {
     var product = await NetworkServices().get(endpoint: ApiEndpoint.products);
     expect(product.statusCode, 200);
   });
 
+  /// Dengan Mocking
   test('should get Response Error from /products', () async {
     /// Mocking
     NetworkServices networkServices = MockNetworkServices();
